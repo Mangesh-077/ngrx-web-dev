@@ -6,6 +6,8 @@ import { AppComponent } from './app.component';
 import { CounterComponent } from './counter/counter/counter.component';
 import { CounterOutputComponent } from './counter/counter-output/counter-output.component';
 import { CounterButtonComponent } from './counter/counter-button/counter-button.component';
+import { StoreModule } from '@ngrx/store';
+import { counterReducer } from './counter/state/counter.reducer';
 
 @NgModule({
   declarations: [
@@ -16,7 +18,8 @@ import { CounterButtonComponent } from './counter/counter-button/counter-button.
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot({counter: counterReducer})
   ],
   providers: [],
   bootstrap: [AppComponent]
@@ -112,3 +115,5 @@ export class AppModule { }
 // -- create state (intial state)
 // -- create Action 
 // -- create Reducer 
+// -- import the store in app.module.ts
+// -- Retrieving store in component by injecting
