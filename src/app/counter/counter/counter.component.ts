@@ -7,18 +7,5 @@ import { Store } from '@ngrx/store';
   styleUrls: ['./counter.component.scss']
 })
 export class CounterComponent {
-  // counter: number = 0;
 
-  // onIncrement(){
-  //   this.counter++
-  // }
-  // onDecrement(){
-  //   this.counter--
-  // }
-
-  // onReset(){
-  //   this.counter = 0
-  // }
-
-  
 }

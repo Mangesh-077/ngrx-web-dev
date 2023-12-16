@@ -111,7 +111,7 @@ export class AppModule { }
 
 // /////////////////////////////
 
-// steps //
+// steps for implement ngrx //
 // -- create state (intial state)
 // -- create Action 
 // -- create Reducer 
