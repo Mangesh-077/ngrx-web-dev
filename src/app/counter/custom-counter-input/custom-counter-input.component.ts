@@ -3,6 +3,7 @@ import { Store } from '@ngrx/store';
 import { CounterState } from '../state/counter.state';
 import { changeName, customCounter } from '../state/counter.action';
 import { Observable } from 'rxjs';
+import { getCounter, getSkillsName } from '../state/counter.selectors';
 
 @Component({
   selector: 'app-custom-counter-input',
@@ -11,7 +12,7 @@ import { Observable } from 'rxjs';
 })
 export class CustomCounterInputComponent implements OnInit {
 
-  public fullName$!: Observable<CounterState>;
+  public fullName$!: Observable<string>;
   public error: boolean = false;
 
   constructor(
@@ -19,7 +20,9 @@ export class CustomCounterInputComponent implements OnInit {
   ){}
   
   ngOnInit(): void {
-   this.fullName$ = this._store.select('counter')
+   this.fullName$ = this._store.select(getSkillsName)
+
+  
      
   }
 
@@ -35,7 +38,7 @@ export class CustomCounterInputComponent implements OnInit {
 
   }
 
-  changename(input: HTMLInputElement){
+  onChangename(input: HTMLInputElement){
     this._store.dispatch(changeName({skills: input.value}))
     input.value = '';
   }

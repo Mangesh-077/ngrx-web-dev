@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -9,6 +9,11 @@ import { StoreModule } from '@ngrx/store';
 import { counterReducer } from './counter/state/counter.reducer';
 import { CustomCounterInputComponent } from './counter/custom-counter-input/custom-counter-input.component';
 import { CounterButtonComponent } from './counter/counter-button/counter-button.component';
+import { HomeComponent } from './home/home.component';
+import { PostsComponent } from './posts/posts.component';
+import { PostsListComponent } from './posts/posts-list/posts-list.component';
+import { NavbarComponent } from './shared/components/navbar/navbar.component';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 @NgModule({
   declarations: [
@@ -17,11 +22,16 @@ import { CounterButtonComponent } from './counter/counter-button/counter-button.
     CounterOutputComponent,
     CounterButtonComponent,
     CustomCounterInputComponent,
+    HomeComponent,
+    PostsComponent,
+    PostsListComponent,
+    NavbarComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({counter: counterReducer})
+    StoreModule.forRoot({counter: counterReducer}),
+    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],
   bootstrap: [AppComponent]

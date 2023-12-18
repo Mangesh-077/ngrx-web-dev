@@ -6,8 +6,8 @@
     </div>
 
     <div class="col-md-4 offset-md-4 mt-5">
-        <h4>{{(fullName$ | async)?.skills}}</h4>
+        <h4>{{(fullName$ | async)}}</h4>
         <input type="text" class="form-control" #skills>
-        <button class="btn btn-success my-2" (click)="changename(skills)">Add Skills</button>
+        <button class="btn btn-success my-2" (click)="onChangename(skills)">Add Skills</button>
     </div>
 </div>
