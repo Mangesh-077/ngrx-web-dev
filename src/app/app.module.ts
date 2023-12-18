@@ -14,6 +14,8 @@ import { PostsComponent } from './posts/posts.component';
 import { PostsListComponent } from './posts/posts-list/posts-list.component';
 import { NavbarComponent } from './shared/components/navbar/navbar.component';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+import { postsReducer } from './posts/state/post.reducer';
+import { appReducer } from './store/app.store';
 
 @NgModule({
   declarations: [
@@ -30,7 +32,7 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({counter: counterReducer}),
+    StoreModule.forRoot(appReducer),
     StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: !isDevMode() })
   ],
   providers: [],
@@ -129,3 +131,5 @@ export class AppModule { }
 // -- create Reducer 
 // -- import the store in app.module.ts
 // -- Retrieving store in component by injecting
+
+//https://github.com/leelanarasimha/ngrx-counter/tree/Video-10
