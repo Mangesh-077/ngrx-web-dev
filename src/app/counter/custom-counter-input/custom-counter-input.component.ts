@@ -4,6 +4,7 @@ import { CounterState } from '../state/counter.state';
 import { changeName, customCounter } from '../state/counter.action';
 import { Observable } from 'rxjs';
 import { getCounter, getSkillsName } from '../state/counter.selectors';
+import { AppState } from 'src/app/store/app.store';
 
 @Component({
   selector: 'app-custom-counter-input',
@@ -16,14 +17,11 @@ export class CustomCounterInputComponent implements OnInit {
   public error: boolean = false;
 
   constructor(
-    private _store: Store<{counter: CounterState}>
+    private _store: Store<AppState>
   ){}
   
   ngOnInit(): void {
-   this.fullName$ = this._store.select(getSkillsName)
-
-  
-     
+   this.fullName$ = this._store.select(getSkillsName);  
   }
 
   addToCount(input: HTMLInputElement){
