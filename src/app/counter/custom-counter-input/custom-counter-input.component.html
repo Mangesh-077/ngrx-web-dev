@@ -1,0 +1,7 @@
+<div class="row">
+    <div class="col-md-4 offset-md-4">
+        <input type="text" class="form-control" #input>
+        <p *ngIf="error" class="text-danger">Please Enter valid Number</p>
+        <button class="btn btn-primary my-2" (click)="addToCount(input)">Add to Counter</button>
+    </div>
+</div>
